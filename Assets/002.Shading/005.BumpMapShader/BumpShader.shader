@@ -1,4 +1,6 @@
-﻿Shader "Custom/BumpMapShader"{
+﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/BumpMapShader"{
 	Properties{
 		_BumpMap("BumpMap", 2D) = "white" {}
 		_DiffuseColor("Diffuse Color", COLOR) = (1,1,1,1)
@@ -49,7 +51,7 @@
 				o.screen = mul(UNITY_MATRIX_MVP, i.vertex);
 				o.uv = i.texcoord;
 
-				float4 ms_normal = normalize(mul(i.normal, _World2Object));
+				float4 ms_normal = normalize(mul(i.normal, unity_WorldToObject));
 
 				float3 n = normalize(ms_normal);
 				float3 t = i.tangent;
