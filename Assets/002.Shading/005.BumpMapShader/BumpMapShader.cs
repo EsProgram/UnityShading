@@ -13,7 +13,7 @@ public class BumpMapShader : MonoBehaviour
   [SerializeField]
   private float k_diffuse;
 
-  public void OnWillRenderObject()
+  public void Update()
   {
     Vector4 lightPos = lightTransform.position;
 

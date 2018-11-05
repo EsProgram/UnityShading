@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Lambert : MonoBehaviour
+public class OrenNayar : MonoBehaviour
 {
   [SerializeField]
   private Material lambert;
@@ -15,6 +15,8 @@ public class Lambert : MonoBehaviour
 
   [SerializeField]
   private float k_ambient;
+  [SerializeField]
+  private float roughness;
 
   public void Update()
   {
@@ -23,5 +25,6 @@ public class Lambert : MonoBehaviour
     lambert.SetVector("light_pos", lightPos);
     lambert.SetFloat("k_diffuse", k_diffuse);
     lambert.SetFloat("k_ambient", k_ambient);
+    lambert.SetFloat("roughness", roughness);
   }
 }

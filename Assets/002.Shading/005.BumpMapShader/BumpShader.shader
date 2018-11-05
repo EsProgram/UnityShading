@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "Custom/BumpMapShader"{
 	Properties{
@@ -48,7 +50,7 @@ Shader "Custom/BumpMapShader"{
 
 			v2f vert(app_data i) {
 				v2f o;
-				o.screen = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.screen = UnityObjectToClipPos(i.vertex);
 				o.uv = i.texcoord;
 
 				float4 ms_normal = normalize(mul(i.normal, unity_WorldToObject));

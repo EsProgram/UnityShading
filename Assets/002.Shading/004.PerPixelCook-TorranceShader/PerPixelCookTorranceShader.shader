@@ -1,4 +1,6 @@
-﻿Shader "Custom/PerPixelCookTorranceShader"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/PerPixelCookTorranceShader"
 {
 	Properties{
 		_DiffuseColor("Diffuse Color", COLOR) = (1,1,1,1)
@@ -52,7 +54,7 @@
 
 		v2f vert(app_data i) {
 			v2f o;
-			o.pos = mul(UNITY_MATRIX_MVP, i.vertex);
+			o.pos = UnityObjectToClipPos(i.vertex);
 			o.local_pos = i.vertex;
 			o.normal = mul(UNITY_MATRIX_IT_MV, float4(i.normal, 1));
 			return o;

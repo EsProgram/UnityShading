@@ -1,4 +1,6 @@
-﻿Shader "Custom/Lambert"{
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Lambert"{
 	Properties{
 		_Color("Color", COLOR) = (1,1,1,1)
 	}
@@ -31,7 +33,7 @@
 
 				float r_diffuse = k_diffuse*max(dot(vs_normal, vs_l), 0);
 
-				o.vertex = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.vertex = UnityObjectToClipPos(i.vertex);
 				o.color = _Color * r_diffuse + k_ambient;
 				return o;
 			}

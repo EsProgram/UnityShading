@@ -22,7 +22,7 @@ public class PerPixelPhongShader : MonoBehaviour
   [SerializeField]
   private float shininess;
 
-  public void OnWillRenderObject()
+  public void Update()
   {
     Vector4 lightPos = lightTransform.position;
 

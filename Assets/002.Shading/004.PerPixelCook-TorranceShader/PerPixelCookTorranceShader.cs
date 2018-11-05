@@ -25,7 +25,7 @@ public class PerPixelCookTorranceShader : MonoBehaviour
   [SerializeField]
   private float complexRefractiveIndex;
 
-  public void OnWillRenderObject()
+  public void Update()
   {
     Vector4 lightPos = lightTransform.position;
 

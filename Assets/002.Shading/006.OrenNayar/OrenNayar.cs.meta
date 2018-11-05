@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5eb57db4387f649088f4a2cac8e061b4
+timeCreated: 1460563488
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - lambert: {fileID: 2100000, guid: b01a95125e2583e47871e92f98703889, type: 2}
+  - lightTransform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,4 +1,6 @@
-﻿Shader "Custom/Phong"{
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Phong"{
 	Properties{
 		_DiffuseColor("Diffuse Color", COLOR) = (1,1,1,1)
 		_SpecularColor("Specular Color", COLOR) = (1,1,1,1)
@@ -42,7 +44,7 @@
 
 				float r_specular = k_specular * pow(max(dot(vs_normal, vs_h), 0),shininess);
 
-				o.vertex = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.vertex = UnityObjectToClipPos(i.vertex);
 				o.color = r_diffuse * _DiffuseColor + r_specular * _SpecularColor + k_ambient;
 				return o;
 			}

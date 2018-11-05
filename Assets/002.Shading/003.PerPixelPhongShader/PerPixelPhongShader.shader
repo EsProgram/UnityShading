@@ -1,4 +1,6 @@
-﻿Shader "Custom/PerPixelPhongShader"{
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/PerPixelPhongShader"{
 	Properties{
 		_DiffuseColor("Diffuse Color", COLOR) = (1,1,1,1)
 		_SpecularColor("Specular Color", COLOR) = (1,1,1,1)
@@ -31,7 +33,7 @@
 			v2f vert(app_data i) {
 				v2f o;
 
-				o.vertex = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.vertex = UnityObjectToClipPos(i.vertex);
 				o.position = i.vertex;
 
 				o.normal = mul(UNITY_MATRIX_IT_MV, float4(i.normal, 1));
